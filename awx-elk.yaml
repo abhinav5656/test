@@ -1,0 +1,11 @@
+- name: Post data to logstash
+  hosts: local
+  tasks:
+    - name: send data to logstash 
+      uri: 
+        url: http://10.0.235.165:5044
+        method: POST
+        body: "{{Hello, lovely people}}"
+      register: logstash
+    - debug: var=logstash
+        
